@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#start-button {
+    z-index: 2;
+}
+
+/* 既存のスタイル */
+
+.game-container {
+    width: 400px;
+    height: 400px;
+    background-color: #eee;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* プレイヤー画像のスタイル */
+#player {
+    position: absolute;
+    width: 40px; /* 画像の幅に合わせる（必要に応じて調整） */
+    height: auto; /* 高さは自動調整 */
+    left: calc(50% - 20px);
+    bottom: 10px;
+    z-index: 2;
+}
+
+.enemy {
+    position: absolute;
+    width: 40px; /* 幅を3倍に変更したので60にする */
+    height: 40px; /* 高さを3倍に変更したので60にする */
+    background-color: red; /* 敵オブジェクトの背景色 */
+    border-radius: 50%; /* ミサイル形状を表現するために丸くする */
+}
