@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click and Bounce Game</title>
+    <style>
+        #game-container {
+            width: 400px;
+            height: 400px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        #ball {
+            width: 50px;
+            height: 50px;
+            background-image: url('ball02.png'); /* 透明な背景を持つ画像を設定 */
+            position: absolute;
+            top: 175px;
+            left: 175px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="ball"></div>
+    </div>
+    <script>
+        var ball = document.getElementById("ball");
+        var container = document.getElementById("game-container");
+        var xSpeed = 2;
+        var ySpeed = 2;
+        var bounceCount = 0;
+        var maxBounceCount = 5;
+
+        ball.addEventListener("click", function () {
+            // ボールをクリックしたときの処理
+            ySpeed = -5; // 上に跳ね返る
+
+            // 跳ね返り回数をカウント
+            bounceCount++;
+
+            // 一定回数跳ね返ったらリセット
+            if (bounceCount >= maxBounceCount) {
+                resetGame();
+            }
+        });
+
+        function gameLoop() {
+            // ボールの座標を更新
+            var x = parseInt(ball.style.left);
+            var y = parseInt(ball.style.top);
+
+            x += xSpeed;
+            y += ySpeed;
+
+            // ボールが画面の境界に当たったら跳ね返る
+            if (x < 0 || x + 50 > container.clientWidth) {
+                xSpeed = -xSpeed;
+            }
+            if (y < 0 || y + 50 > container.clientHeight) {
+                ySpeed = -ySpeed;
+            }
+
+            // ボールの位置を更新
+            ball.style.left = x + "px";
+            ball.style.top = y + "px";
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        function resetGame() {
+            bounceCount = 0;
+            ball.style.left = "175px";
+            ball.style.top = "175px";
+            xSpeed = 2;
+            ySpeed = 2;
+        }
+
+        gameLoop(); // ゲームループを開始
+    </script>
+</body>
+</html>
