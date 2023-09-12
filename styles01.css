@@ -1,0 +1,20 @@
+/* 既存のスタイル */
+
+/* スタートボタンのスタイル */
+.start-button-container {
+    display: inline-block;
+    position: relative;
+}
+
+#start-button {
+    display: block;
+    width: 200px; /* 画像の幅に合わせて調整 */
+    height: auto;
+}
+
+/* マウスカーソルが被ったときのスタイル */
+.start-button-container:hover #start-button {
+    content: url('start_button.gif'); /* マウスオーバー時にGIF画像に切り替え */
+    width: 200px; /* GIF画像の幅に合わせて調整 */
+    height: auto;
+}
