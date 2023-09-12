@@ -259,3 +259,9 @@ function endGame() {
 }
 
 gameLoop();
+
+const backButton = document.getElementById('back-button');
+
+backButton.addEventListener('click', () => {
+    window.history.back(); // ブラウザの戻る機能を呼び出す
+});
