@@ -20,11 +20,13 @@ body {
 }
 
 /* 既存のスタイル */
-
 .game-container {
     width: 400px;
     height: 400px;
-    background-color: #eee;
+    background-image: url('background-image.jpg'); /* 画像ファイルのパスを指定 */
+    background-size: cover; /* 画像を要素に合わせて拡大または縮小 */
+    background-repeat: no-repeat; /* 画像の繰り返しを無効化 */
+    background-position: center center; /* 画像を要素の中央に配置 */
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -42,8 +44,42 @@ body {
 
 .enemy {
     position: absolute;
-    width: 40px; /* 幅を3倍に変更したので60にする */
-    height: 40px; /* 高さを3倍に変更したので60にする */
-    background-color: red; /* 敵オブジェクトの背景色 */
-    border-radius: 50%; /* ミサイル形状を表現するために丸くする */
+    width: 40px; /* 幅を調整 */
+    height: 40px; /* 高さを調整 */
+    background-image: url('enemy01.png'); /* 敵の画像ファイルのパス */
+    background-size: cover; /* 画像を要素に合わせて拡大または縮小 */
+    background-repeat: no-repeat; /* 画像の繰り返しを無効化 */
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow-set {
+    display: inline-block; /* 2つのセットを同じ行に配置 */
+}
+
+.arrow-container {
+    display: inline-block; /* 画像とテキストを同じ行に配置 */
+    text-align: center; /* 水平方向に中央揃え */
+    margin-right:-30px; /* 各セットの間隔を設定 */
+}
+
+.arrow-image01 {
+    width: 40px;
+    height: 40px;
+    /* 画像とテキストの間隔を調整 */
+    margin-bottom: 5px;
+}
+
+.arrow-text01 {
+    /* 画像の真上に配置 */
+    position: relative;
+    top: -20px;
+}
+
+.hidden {
+    display: none;
 }

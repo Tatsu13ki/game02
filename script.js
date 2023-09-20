@@ -136,17 +136,6 @@ startButton.addEventListener('click', () => {
     }
 });
 
-document.addEventListener('keydown', (e) => {
-    if (isGameRunning) {
-        if (e.key === 'ArrowLeft') {
-            isMovingLeft = true;
-        }
-        if (e.key === 'ArrowRight') {
-            isMovingRight = true;
-        }
-    }
-});
-
 document.addEventListener('keyup', (e) => {
     if (isGameRunning) {
         if (e.key === 'ArrowLeft') {
@@ -229,13 +218,19 @@ function checkCollision() {
             playerHealth--;
             healthCounter.innerText = playerHealth; // カウンターを更新
             if (playerHealth <= 0) {
-                alert('You got hit too many times! Game Over.');
-                resetGame();
+                // ゲームオーバー時に game-over.html に自動的に遷移
+                window.location.href = 'game-over.html'; // 遷移先のHTMLファイルの名前を指定
             } else {
                 enemy.remove();
             }
         }
     });
+}
+
+// ゲーム終了時の処理
+function endGame() {
+    // ページ遷移
+    window.location.href = 'game-over.html'; // 遷移先のHTMLファイルの名前を指定
 }
 
 function resetGame() {
@@ -251,12 +246,6 @@ function resetGame() {
     healthCounter.innerText = playerHealth; // カウンターをリセット
 }
 
-function endGame() {
-    isGameRunning = false;
-    player.src = 'game_over.gif'; // ゲームオーバー時にGIFに切り替え
-    alert('Game Over');
-    // ここでゲームオーバー時の追加の処理を行うこともできます
-}
 
 gameLoop();
 
@@ -264,4 +253,9 @@ const backButton = document.getElementById('back-button');
 
 backButton.addEventListener('click', () => {
     window.history.back(); // ブラウザの戻る機能を呼び出す
+});
+
+// 戻るボタンのリンク設定
+backButton.addEventListener('click', () => {
+    window.location.href = 'home.html'; // home.html に遷移
 });

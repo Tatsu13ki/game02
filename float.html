@@ -8,16 +8,25 @@
 </head>
 <body>
     <div class="game-container">
-        <!-- プレイヤー画像を表示するための<img>要素を追加 -->
+        <!-- プレイヤー画像 -->
         <img id="player" src="player.png" alt="Player">
+        <img id="game-over" src="game-over.png" alt="Game Over" class="hidden">
     </div>
     <div class="status-container">
         <div id="health-counter">Health: <span id="health">3</span></div>
-        <p><br><br><br>操作説明 　←:左へ　→：右へ</p>
+        <p><br><br><br><br>操作説明</p>
+        <!-- 矢印の画像を表示 -->
         <button id="start-button">Start Game</button>
     </div>
+    <div class="arrow-container">
+        <img src="left-arrow.png" alt="Left Arrow" class="arrow-image01">
+        <span class="arrow-text01">左へ</span>
+        <img src="right-arrow.png" alt="Right Arrow" class="arrow-image01">
+        <span class="arrow-text01">右へ</span>
+    </div>
     <!-- 戻るボタン -->
-    <button id="back-button">Back to Home</button>
+    <br><button id="back-button">ホームへ戻る</button>
     <script src="script.js"></script> <!-- script.js を読み込む -->
 </body>
 </html>
+

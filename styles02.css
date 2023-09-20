@@ -1,0 +1,59 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.game-over-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#game-over-text {
+    font-size: 48px;
+    color: #fff;
+    position: absolute;
+    top: -100px; /* 初期状態では画面外に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: dropIn 1s ease forwards;
+}
+
+#game-over-image {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transform-origin: center;
+    transition: transform 3s, opacity 3s;
+}
+
+/* ボタンのアニメーション遅延を設定 */
+#back-button {
+    margin-top: 50px; /* ボタンの位置を30px下に移動 */
+    padding: 10px 20px;
+    background-color: blue; /* 背景色を白に変更 */
+    color: white; /* テキストの色を黒に変更 */
+    border: none;
+    cursor: pointer;
+    opacity: 0; /* ボタンを非表示に */
+    transition: opacity 1s; /* opacityプロパティに1秒の遷移を設定 */
+    position: relative; /* ボタンの位置を調整するために相対位置を設定 */
+    z-index: 1; /* ボタンを他の要素の上に配置 */
+}
+
+@keyframes dropIn {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 50%;
+    }
+}
